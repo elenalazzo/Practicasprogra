@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--button v-on:click="message">Clic v-on</button>
+        <button @click="message">Clic @click</button>
+        <button v-on="events">Click</button-->
+        <button v-on:click.once="message">Clic v-on</button>
+
+        <input @keyup.enter="message" placeholder="Presione la tecla enter"></input>
+        <input type="text" @keyup.caps-lock="message" placeholder="Presione Caps Lock"></input>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data(){
+                return{
+                    events:{
+                        click: ()=>alert('Se presiono click sobre el boton'),
+                        mouseleave: ()=>alert('Se ha alejado el mouse del boton'),
+                        mouseenter: ()=>alert('Ha ingresado')
+                    }
+                }
+            },
+            methods:{
+                message(){
+                    alert('Programacion Computacional IV');
+                }
+            }
+        })
+
+
+    </script>
+</body>
+</html>
